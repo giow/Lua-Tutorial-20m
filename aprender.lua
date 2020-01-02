@@ -379,8 +379,7 @@ g()  -- Printa 343; nada 'impresso' antes de agora.
 ----------------------------------------------------
 
 --[[
-Eu ! Noah#7706 traduzi um aquivo que eu estava estudando sobre lua,
-o link do arquivo é http://tylerneylon.com/a/learn-lua/ .
+BASEADO EM https://www.lua.org/manual/5.1/pt/manual.html .
 
 
 Os principais tópicos não abordados são bibliotecas padrão:

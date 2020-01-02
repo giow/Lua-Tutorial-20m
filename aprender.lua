@@ -1,42 +1,42 @@
 -- Dois traços iniciam um comentário de uma linha.
 
 --[[
-     Adicionar dois '[]' torna um
-     comentário de várias linhas.
+     Adicionar dois '[]' faz com que seja um 
+     comentário de várias linhas. 
 --]]
 
 ----------------------------------------------------
--- 1. Variáveis ​​e controle de fluxo.
+-- 1. Variáveis e controle de fluxo.
 ----------------------------------------------------
 
 num = 42  -- Todos os números são duplos.
--- Não se desespere, as duplas de 64 bits têm 52 bits para 
--- armazenar valores int precisos; a precisão da máquina não é um problema para entradas que precisam de <52 bits.
-
-s = 'walternate'  -- Cordas imutáveis ​​como Python.
+-- NNão surte, duplos de 64 bits têm 52 bits para 
+-- armazenar valores exatos de int; a precisão da máquina 
+-- não é um problema para entradas que precisam de <52 bits.
+s = 'walternate'  -- sequencias imutaveis como Python.
 t = "double-quotes are also fine"
 u = [[ Parênteses duplos
        começo e fim
        sequências de várias linhas.]]
 t = nil  -- Nil é igual a false.
 
--- Os blocos são indicados com palavras-chave como do / end:
+-- Blocos são indicados com palavras-chave como do / end: 
 while num < 50 do
-  num = num + 1  -- No ++ or += type operators.
+  num = num + 1  -- Nenhum operador do tipo ++ ou + =. 
 end
 
 -- Como usar IF
 if num > 40 then
   print('over 40')
-elseif s ~= 'walternate' then  -- ~= is not equals.
+elseif s ~= 'walternate' then  -- ~= não é igual. 
   -- A verificação de igualdade é == como Python; ok para strings.
-  io.write('not over 40\n')  -- Defaults to stdout.
+  io.write('not over 40\n')  -- O padrão é stdout. 
 else
   -- As variáveis ​​são globais por padrão.
-  thisIsGlobal = 5  -- Camel case is common.
+  thisIsGlobal = 5  -- O caso Camel é comum.
 
   -- Como tornar uma variável local:
-  local line = io.read()  -- Reads next stdin line.
+  local line = io.read()  -- Lê a próxima linha stdin. 
 
   -- A concatenação de cadeias usa o operador ..
   print('Winter is coming, ' .. line)
@@ -178,12 +178,12 @@ end
 -- com 'keys' inteiras consecutivas, tratadas como uma lista.
 
 ----------------------------------------------------
--- 3.1 Metatables e metamethods.
+-- 3.1 Metatabelas e metamétodos.
 ----------------------------------------------------
 
--- Uma tabela pode ter uma Metatables que dê à tabela
--- operator-overloadish behavior. Later we'll see
--- how metatables support js-prototypey behavior.
+-- Uma tabela pode ter uma meta-tabela que dê à tabela o 
+--comportamento de sobrecarga do operador. Mais adiante veremos 
+-- como as metatables suportam o comportamento js-prototypey.
 
 f1 = {a = 1, b = 2}  -- Representa a fração a / b.
 f2 = {a = 2, b = 3}
@@ -204,13 +204,13 @@ setmetatable(f2, metafraction)
 
 s = f1 + f2  -- call __add(f1, f2) on f1's metatable
 
--- f1, f2 não têm 'key' para o seu metatable, ao contrário
--- protótipos em js, portanto, você deve recuperá-lo como em
--- getmetatable(f1). O metatable é uma tabela normal
--- com chaves que Lua conhece, como , like __add.
+-- ff1, f2 não tem chave para seus metotipos, ao contrário de 
+-- protótipos em js, portanto, você deve recuperá-lo como in 
+-- getmetatable (f1). A meta-tabela é uma tabela normal 
+-- com chaves que Lua conhece, como __add.
 
--- Mas a próxima linha falha, já que s não tem metatable:
--- t = s + s
+-- Mas a próxima linha falha, uma vez que s não tem meta-meta: 
+-- t = s + s 
 -- Os padrões de classe dados abaixo corrigem isso.
 
 -- Um __index em uma sobrecarga metável carrega pesquisas de ponto:
@@ -266,19 +266,19 @@ end
 mrDog = Dog:new()                          -- 7.
 mrDog:makeSound()  -- 'I say woof'         -- 8.
 
---1. O cachorro age como uma classe; é realmente uma mesa.
--- 2. nome da tabela da função: fn (...) é o mesmo que
--- função tablename.fn (self, ...)
--- O: apenas adiciona um primeiro argumento chamado self.
--- Leia 7 e 8 abaixo para saber como o eu obtém seu valor.
--- 3. newObj será uma instância da classe Dog.
--- 4. self = a classe que está sendo instanciada. Frequentemente
--- self = Dog, mas a herança pode mudar isso.
--- newObj obtém as funções de si quando definimos ambos
--- newObj é metável e __index de si mesmo.
--- 5. Lembrete: setmetatable retorna seu primeiro argumento.
--- 6. O: funciona como em 2, mas desta vez esperamos
--- ser uma instância em vez de uma classe.
+--1. O cachorro age como uma classe; é realmente uma mesa. 
+-- 2. function tablename: fn (...) é o mesmo que 
+-- function tablename.fn (self, ...) 
+-- O: apenas adiciona um primeiro argumento chamado self. 
+-- Leia 7 e 8 abaixo para saber como o eu obtém seu valor. 
+-- 3. newObj será uma instância da classe Dog. 
+-- 4. self = a classe que está sendo instanciada. Muitas vezes 
+-- self = Dog, mas a herança pode mudar isso. 
+-- newObj obtém as funções de si quando definimos as duas 
+-- metável de newObj e __índice de self como self. 
+-- 5. Lembrete: setmetatable retorna seu primeiro argumento. 
+-- 6. O: funciona como em 2, mas desta vez esperamos 
+--que seja uma instância em vez de uma classe. 
 -- 7. O mesmo que Dog.new (Dog), então self = Dog em new ().
 -- 8. O mesmo que mrDog.makeSound (mrDog); self = mrDog.
 

@@ -10,7 +10,7 @@
 ----------------------------------------------------
 
 num = 42  -- Todos os números são duplos.
--- NNão surte, duplos de 64 bits têm 52 bits para 
+-- Não surte, duplos de 64 bits têm 52 bits para 
 -- armazenar valores exatos de int; a precisão da máquina 
 -- não é um problema para entradas que precisam de <52 bits.
 s = 'walternate'  -- sequencias imutaveis como Python.
